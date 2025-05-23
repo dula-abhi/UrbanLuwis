@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="CSS/Fabricprodcut.css">
+  <link rel="stylesheet" href="styles_common.css">
+</head>
+<body>
+
+<!-- Add to Cart Icon Button -->
+<button id="addToCartBtn" class="cart-icon-btn">
+  <img src="logo/add-to-bag.png" alt="Cart Icon" />
+</button>
+
+<!-- Floating Cart Panel -->
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <span>🛒 Your Cart</span>
+    <button id="closeCart" class="close-btn">&times;</button>
+  </div>
+
+  <div class="cart-content" id="cartContent"></div>
+  <div class="cart-total" id="cartTotal"></div>
+
+  <div class="cart-footer">
+    <button class="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<div class="container">
+  <button class="back-button" onclick="history.back()">Back</button>
+
+  <div class="product-card">
+    <div class="left-panel">
+      <div class="image-section">
+        <img id="main-image" src="" alt="Product Image" class="main-image">
+      </div>
+    </div>
+
+    <div class="product-info">
+      <h1 id="product-name"></h1>
+      <p id="product-price"></p>
+      <p id="product-description"></p>
+
+      <label for="quantity" class="quantity-label">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-input">
+
+      <br><br>
+      <button class="Add-to-cart" id="realAddToCartBtn">ADD TO CART</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const products = [
+    {
+      id: "1",
+      name: "Single Jersey duck Design.",
+      price: "Rs. 1350/=",
+      description: "Cotton & polyester blend Single Jersey",
+      image: "Fabric_page/TYPES_OF_FABRIC/Single_Jersey/SJ_P_00005.jpg",
+    },
+    {
+      id: "2",
+      name: "Single Jersey Miffy Design.",
+      price: "Rs. 1350/=",
+      description: "Cotton & polyester blend Single Jersey",
+      image: "Fabric_page/TYPES_OF_FABRIC/Single_Jersey/SJ_P_CP_00003.jpg",
+    },
+    {
+      id: "3",
+      name: "Single Jersey 4 Flowers and pinaapple.",
+      price: "Rs. 1550/=",
+      description: "100% Cotton Single Jersey",
+      image: "Fabric_page/TYPES_OF_FABRIC/Single_Jersey/20250504_203030.jpg",
+    },
+    {
+      id: "4",
+      name: "Single Jersey Flower Design 1.",
+      price: "Rs. 1550/=",
+      description: "100% Cotton Single Jersey",
+      image: "Fabric_page/TYPES_OF_FABRIC/Single_Jersey/20250504_203001.jpg",
+    },
+    {
+      id: "5",
+      name: "Single Jersey Flower Design 2.",
+      price: "Rs. 1550/=",
+      description: "100% Cotton Single Jersey",
+      image: "Fabric_page/TYPES_OF_FABRIC/Single_Jersey/20250504_202859.jpg",
+    },
+    {
+      id: "6",
+      name: "Single Jersey Flower Design 3.",
+      price: "Rs. 1550/=",
+      description: "100% Cotton Single Jersey",
+      image: "Fabric_page/TYPES_OF_FABRIC/Single_Jersey/20250504_202836.jpg",
+    },
+    {
+      id: "7",
+      name: "Single Jersey Dog and SweetsDesign .",
+      price: "Rs. 1550/=",
+      description: "100% Cotton Single Jersey",
+      image: "Fabric_page/TYPES_OF_FABRIC/Single_Jersey/20250504_202808.jpg",
+    },
+  ];
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const productId = urlParams.get("id") || "1";
+  const product = products.find(p => p.id === productId);
+
+  if (product) {
+    document.getElementById("product-name").textContent = product.name;
+    document.getElementById("product-price").textContent = product.price;
+    document.getElementById("product-description").textContent = product.description;
+    document.getElementById("main-image").src = product.image;
+  }
+
+  // Handle "Add to Cart"
+  document.getElementById("realAddToCartBtn").addEventListener("click", () => {
+    const quantity = parseInt(document.getElementById("quantity").value);
+
+    if (!quantity || quantity < 1) {
+      alert("Please enter a valid quantity.");
+      return;
+    }
+
+    const item = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      quantity: quantity
+    };
+
+    addToCart(item);
+  });
+
+  // Minimal cart function
+  function addToCart(item) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const index = cart.findIndex(i => i.id === item.id);
+
+    if (index > -1) {
+      cart[index].quantity += item.quantity;
+    } else {
+      cart.push(item);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Item added to cart!");
+  }
+</script>
+
+<!-- Footer -->
+<br><br>
+<div id="footer"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
+
+<script>
+// Call global cart function defined in cart.js
+  if (typeof addToCart === "function") {
+    addToCart(item);
+  } else {
+    alert("Cart functionality is not loaded.");
+  }
+</script>
+
+<script src="JS/cart.js"></script> <!-- Load your cart.js here --></script>
+
+</body>
+</html>

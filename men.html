@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Men</title>
+  <link rel="stylesheet" href="CSS/common_page_for_cloths.css">
+  <link rel="stylesheet" href="styles_common.css">
+</head>
+<body>
+
+  <!-- Back Button -->
+  <button class="back-button" onclick="history.back()">Back</button>
+
+  <main>
+    <section class="product-cards">
+      <a href="MENproduct.html?id=1" class="card-link">
+        <div class="card">
+          <img src="Clothe_page/men/product_f1.png" alt="Product 1" class="card-img">
+          <h3 class="card-title">LUWIS Gray Fit</h3>
+          <p class="card-price">Rs. 6990/=</p>
+          <button class="card-button" onclick="location.href='MENproduct.html?id=1'">View More</button>
+        </div>
+      </a>
+      
+      <a href="MENproduct.html?id=2" class="card-link">
+        <div class="card">
+          <img src="Clothe_page/men/product_f2.png" alt="Product 2" class="card-img">
+          <h3 class="card-title">LUWIS Black Fit</h3>
+          <p class="card-price">Rs. 6990/=</p>
+          <button class="card-button" onclick="location.href='MENproduct.html?id=2'">View More</button>
+        </div>
+      </a>
+      
+      <a href="MENproduct.html?id=3" class="card-link">
+        <div class="card">
+          <img src="Clothe_page/men/blank_01.png" alt="Product 3" class="card-img">
+          <h3 class="card-title">LUWIS Jacket</h3>
+          <p class="card-price">Rs. 8990/=</p>
+          <button class="card-button" onclick="location.href='MENproduct.html?id=3'">View More</button>
+        </div>
+      </a>
+
+      <a href="MENproduct.html?id=4" class="card-link">
+        <div class="card">
+          <img src="Clothe_page/men/White_f.png" alt="Product 4" class="card-img">
+          <h3 class="card-title">LUWIS Crew Neck (White/Light Brown)</h3>
+          <p class="card-price">Rs. 3750/=</p>
+          <button class="card-button" onclick="location.href='MENproduct.html?id=4'">View More</button>
+        </div>
+      </a>
+
+      <a href="MENproduct.html?id=5" class="card-link">
+        <div class="card">
+          <img src="Clothe_page/men/Asphalt_f.png" alt="Product 5" class="card-img">
+          <h3 class="card-title">LUWIS Crew Neck (Gray/Light Gray)</h3>
+          <p class="card-price">Rs. 3750/=</p>
+          <button class="card-button" onclick="location.href='MENproduct.html?id=5'">View More</button>
+        </div>
+      </a>
+
+      <a href="MENproduct.html?id=6" class="card-link">
+        <div class="card">
+          <img src="Clothe_page/men/SeaSpray_f.png" alt="Product 6" class="card-img">
+          <h3 class="card-title">"LUWIS Crew Neck (cayan/Light Cayan)</h3>
+          <p class="card-price">Rs. 3750/=</p>
+          <button class="card-button" onclick="location.href='MENproduct.html?id=6'">View More</button>
+        </div>
+      </a>
+
+      <a href="MENproduct.html?id=7" class="card-link">
+        <div class="card">
+          <img src="Clothe_page/men/PowderBlue_f.png" alt="Product 7" class="card-img">
+          <h3 class="card-title">LUWIS Crew Neck (light Bule)</h3>
+          <p class="card-price">Rs. 3750/=</p>
+          <button class="card-button" onclick="location.href='MENproduct.html?id=7'">View More</button>
+        </div>
+      </a>
+
+      <a href="MENproduct.html?id=8" class="card-link">
+        <div class="card">
+          <img src="Clothe_page/men/Sage_f.png" alt="Product 8" class="card-img">
+          <h3 class="card-title">LUWIS Crew Neck (light Green)</h3>
+          <p class="card-price">Rs. 3750/=</p>
+          <button class="card-button" onclick="location.href='MENproduct.html?id=8'">View More</button>
+        </div>
+      </a>
+
+
+      <a href="MENproduct.html?id=9" class="card-link">
+        <div class="card">
+          <img src="Clothe_page/men/HeatherKhaki_f.png" alt="Product 9" class="card-img">
+          <h3 class="card-title">LUWIS Crew Neck (Light Orange)</h3>
+          <p class="card-price">Rs. 3750/=</p>
+          <button class="card-button" onclick="location.href='MENproduct.html?id=9'">View More</button>
+        </div>
+      </a>
+
+
+      <a href="MENproduct.html?id=10" class="card-link">
+        <div class="card">
+          <img src="Clothe_page/men/Jacket/JacketNavy_f.png" alt="Product 10" class="card-img">
+          <h3 class="card-title">LUWIS Jacket <br>(NavyBule/black/Gray)</h3>
+          <p class="card-price">Rs. 8900/=</p>
+          <button class="card-button" onclick="location.href='MENproduct.html?id=10'">View More</button>
+        </div>
+      </a>
+
+
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+  <script>
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('footer').innerHTML = data;
+      });
+  </script>
+
+  <!-- Scroll to Top Button Script -->
+  <script>
+    window.onscroll = function () {
+      const btn = document.getElementById("topBtn");
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+  <!-- Back to Top Button -->
+  <button onclick="scrollToTop()" id="topBtn" title="Go to top">
+    <img src="logo/uparrow.png" alt="Up Arrow">
+  </button>
+
+</body>
+</html>

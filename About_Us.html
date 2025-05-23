@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>About Us</title>
+  <link rel="stylesheet" href="CSS/aboutUs.css" />
+  <link rel="stylesheet" href="styles_common.css" />
+</head>
+<body>
+
+<!--navigation bar-->
+<div id="navbar"></div>
+
+<script>
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+    });
+</script>
+<!--End navigation bar-->
+
+<!-- About Us -->
+<div class="about-container">
+  <img src="logo/ULT.jpg" alt="Urban Luwis Logo" class="about-image">
+  
+  <div class="about-text-box">
+    <p>
+      URBAN LUWIS is a proudly Sri Lankan brand established in 2025 under Secret Group (Pvt) Ltd, dedicated to redefining fashion and fabric standards. As a dynamic and evolving sub-brand, Urban Luwis offers a comprehensive range of high-quality clothing for men, women, and children, alongside stylish accessories, all under the Urban Luwis Clothing label.<br><br>
+More than just fashion, Urban Luwis is also home to Urban Luwis Fabric a premium line of high-quality fabrics imported from trusted suppliers, ensuring top-notch quality for both local and international markets.<br><br>
+
+    </p>
+  </div>
+  
+  <img src="logo/ULFabric.jpg" alt="Urban Luwis Fabric" class="about-image">
+</div>
+
+<!-- Sub Brands Combined Box -->
+<div class="sub-brands-box">
+  <h2>Our Sub Brands</h2>
+  <p>
+    Urban Luwis proudly operates under Secret Group (Pvt) Ltd, alongside several trusted and reputed brands. These sub-brands each specialize in unique areas of fashion and textiles, working together to uplift Sri Lankan quality to global standards.
+  </p>
+  
+  <div class="sub-brand-images">
+    <img src="logo/DHAclothing.jpeg" alt="DHA (Pvt) Ltd">
+    <img src="logo/DonaldFabric.jpg" alt="Donald Factory Outlet">
+    <img src="logo/DonaldTextile.jpg" alt="Donald Textile">
+    <img src="logo/MPB.jpg" alt="Manik Puja Banda">
+    <!--<img src="subbrands/secret_group.jpg" alt="Secret Group">-->
+  </div>
+</div>
+
+
+<!-- Google Map -->
+<!-- Google Map -->
+<div style="width: 100%; height: auto;">
+  <iframe 
+    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d345.79380558701064!2d79.92853027303694!3d6.857789277780476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2slk!4v1746187760016!5m2!1sen!2slk" 
+    width="100%" 
+    height="400" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- Floating Chat with Us Button -->
+<div class="chat-float">
+  <img src="logo/CahtWithUs.svg" alt="Chat with Us" class="main-chat-icon" />
+  <div class="chat-options">
+    <a href="https://wa.me/94776703808" target="_blank">
+      <img src="logo/WhatsApp.png" alt="WhatsApp" />
+    </a>
+    <a href="https://www.instagram.com/_urban_luwis_clothing_" target="_blank">
+      <img src="logo/Instagram.png" alt="Instagram" />
+    </a>
+    <a href="https://t.me/yourusername" target="_blank">
+      <img src="logo/telegram.png" alt="Telegram" />
+    </a>
+    <a href="https://www.facebook.com/yourpage" target="_blank">
+      <img src="logo/facebook.png" alt="Facebook" />
+    </a>
+    <a href="mailto:yourmail@example.com">
+      <img src="logo/gmail.png" alt="Email" />
+    </a>
+  </div>
+</div>
+
+<!--footer-->
+<div id="footer"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
+<!--End Footer-->
+
+</body>
+</html>

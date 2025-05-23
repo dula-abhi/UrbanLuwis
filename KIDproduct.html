@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Product Details</title>
+  <link rel="stylesheet" href="CSS/Clothsproduct.css">
+  <link rel="stylesheet" href="styles_common.css">
+</head>
+<body>
+
+<!-- Add to Cart Button -->
+<button id="addToCartBtn" class="cart-icon-btn">
+  <img src="logo/add-to-bag.png" alt="Cart Icon" />
+</button>
+
+<!-- Floating Cart Panel -->
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <span>🛒 Your Cart</span>
+    <button id="closeCart" class="close-btn">&times;</button>
+  </div>
+
+  <div class="cart-content" id="cartContent"></div>
+  <div class="cart-total" id="cartTotal"></div>
+
+  <div class="cart-footer">
+    <button class="checkout-btn">Checkout</button>
+  </div>
+</div>
+
+<div class="container">
+  <button class="back-button" onclick="history.back()">Back</button>
+
+  <div class="product-card">
+    <div class="left-panel">
+      <div class="image-section">
+        <img id="main-image" src="" alt="Product Image" class="main-image">
+      </div>
+    </div>
+
+    <div class="product-info">
+      <h1 id="product-name"></h1>
+      <p id="product-description"></p>
+      <H2 id="product-price"></H2>
+
+      <label id="color-label">Select Color - </label>
+      <div id="color-options" class="color-options"></div>
+
+      <label>Select Size:</label>
+      <div id="size-options" class="size-options"></div>
+
+      <label for="quantity" class="quantity-label">Quantity:</label>
+      <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-input">
+
+      <br><br>
+      <button class="Add-to-cart" id="realAddToCartBtn">ADD TO CART</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const products = [
+  {
+    id: "1",
+    name: "Girls t-shirt",
+    price: "Rs. 2450/=",
+    description: "Classic black fit with premium stitching. Sleek and modern look.",
+    images: [
+      "Clothe_page/Kids/Girls/GirlTpink_f.png",
+      "Clothe_page/Kids/Girls/GirlTnavy_f.png",
+      "Clothe_page/Kids/Girls/GirlTgray_f.png",
+    ],
+    colorNames: ["Blush Pink", "Navy Blue", "Charcoal Gray"],
+    sizes: ["XS", "S", "M", "L", "XL"]
+  },
+  {
+    id: "2",
+    name: "Boys t-shirt",
+    price: "Rs. 2450/=",
+    description: "Classic black fit with premium stitching. Sleek and modern look.",
+    images: [
+      "Clothe_page/Kids/Boys/IceBlueT_f.png",
+      "Clothe_page/Kids/Boys/LGreenT_f.png",
+      "Clothe_page/Kids/Boys/MauveT_f.png",
+      "Clothe_page/Kids/Boys/pinkT_f.png",
+      "Clothe_page/Kids/Boys/blueT_f.png"
+    ],
+    colorNames: ["Ice Blue", "Light Green", "Mauve", "Blush Pink", "Royal Blue"],
+    sizes: ["XS", "S", "M", "L", "XL"]
+  }
+];
+
+const urlParams = new URLSearchParams(window.location.search);
+const productId = urlParams.get("id") || "1";
+const product = products.find(p => p.id === productId);
+
+document.getElementById("product-name").textContent = product.name;
+document.getElementById("product-price").textContent = product.price;
+document.getElementById("product-description").textContent = product.description;
+document.getElementById("main-image").src = product.images[0];
+
+const colorLabel = document.getElementById("color-label");
+const colorOptionsContainer = document.getElementById("color-options");
+const sizeOptionsContainer = document.getElementById("size-options");
+const realAddToCartBtn = document.getElementById("realAddToCartBtn");
+
+product.images.forEach((img, index) => {
+  const swatch = document.createElement("div");
+  swatch.classList.add("color-swatch");
+  swatch.style.backgroundImage = `url(${img})`;
+  swatch.addEventListener("click", () => {
+    document.getElementById("main-image").src = img;
+    document.querySelectorAll(".color-swatch").forEach(s => s.classList.remove("selected"));
+    swatch.classList.add("selected");
+    colorLabel.textContent = `Select Color - ${product.colorNames[index]}`;
+  });
+  if (index === 0) {
+    swatch.classList.add("selected");
+    colorLabel.textContent = `Select Color - ${product.colorNames[0]}`;
+  }
+  colorOptionsContainer.appendChild(swatch);
+});
+
+product.sizes.forEach(size => {
+  const sizeBtn = document.createElement("div");
+  sizeBtn.classList.add("size-option");
+  sizeBtn.textContent = size;
+  sizeBtn.addEventListener("click", () => {
+    document.querySelectorAll(".size-option").forEach(s => s.classList.remove("selected"));
+    sizeBtn.classList.add("selected");
+  });
+  sizeOptionsContainer.appendChild(sizeBtn);
+});
+
+realAddToCartBtn.addEventListener("click", () => {
+  const selectedColor = document.querySelector(".color-swatch.selected");
+  const selectedSize = document.querySelector(".size-option.selected");
+  const quantity = parseInt(document.getElementById("quantity").value);
+  const selectedColorIndex = [...document.querySelectorAll(".color-swatch")].indexOf(selectedColor);
+
+  if (!selectedColor || !selectedSize || !quantity || quantity < 1) {
+    alert("Please select color, size and enter valid quantity.");
+    return;
+  }
+
+  const item = {
+    id: product.id,
+    name: product.name,
+    price: product.price,
+    color: product.colorNames[selectedColorIndex],
+    size: selectedSize.textContent,
+    image: product.images[selectedColorIndex],
+    quantity: quantity
+  };
+
+  // Call global cart function defined in cart.js
+  if (typeof addToCart === "function") {
+    addToCart(item);
+  } else {
+    alert("Cart functionality is not loaded.");
+  }
+});
+</script>
+
+<!-- Footer -->
+<br><br>
+<div id="footer"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
+
+<script src="JS/cart.js"></script> <!-- Load your cart.js here -->
+
+</body>
+</html>
+
+
+
+

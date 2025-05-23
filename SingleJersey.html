@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Single Jersey</title>
+  <link rel="stylesheet" href="CSS/types_of_fabric.css">
+</head>
+<body>
+
+<!-- Back Button -->
+<div class="container">
+  <button class="back-button" onclick="history.back()">Back</button>
+
+  <!-- Page Content -->
+  <div class="content">
+    <!-- Description Section -->
+    <div class="description">
+      <h2>Single Jersey</h2>
+      <p>
+        Single Jersey is a lightweight, soft, and stretchy knit fabric made using a single set of needles...
+      </p>
+    </div>
+
+    <!-- Product Gallery -->
+    <div class="product-gallery">
+
+      <!-- Product Cards -->
+      <a href="SJ_product.html?id=1" class="card-link">
+      <div class="product" data-index="1">
+        <img src="Fabric_page/TYPES_OF_FABRIC/Single_Jersey/SJ_P_00005.jpg" alt="SJ 1">
+        <h3>Rs 1350/= per Kg</h3>
+        <p>Cotton & polyester blend Single Jersey</p>
+        <button class="card-button view-more">VIEW MORE</button>
+      </div></a>
+
+      <a href="SJ_product.html?id=2" class="card-link">
+      <div class="product" data-index="2">
+        <img src="Fabric_page/TYPES_OF_FABRIC/Single_Jersey/SJ_P_CP_00003.jpg" alt="SJ 2">
+        <h3>Rs 1350/= per Kg</h3>
+        <p>Cotton & polyester blend Single Jersey</p>
+        <button class="card-button view-more">VIEW MORE</button>
+      </div></a>
+
+      <a href="SJ_product.html?id=3" class="card-link">
+      <div class="product" data-index="3">
+        <img src="Fabric_page/TYPES_OF_FABRIC/Single_Jersey/20250504_203030.jpg" alt="SJ 3">
+        <h3>Rs 1550/= per Kg</h3>
+        <p>100% Cotton Single Jersey</p>
+        <button class="card-button view-more">VIEW MORE</button>
+      </div></a>
+
+      <a href="SJ_product.html?id=4" class="card-link">
+      <div class="product" data-index="4">
+        <img src="Fabric_page/TYPES_OF_FABRIC/Single_Jersey/20250504_203001.jpg" alt="SJ 4">
+        <h3>Rs 1550/= per Kg</h3>
+        <p>100% Cotton Single Jersey</p>
+        <button class="card-button view-more">VIEW MORE</button>
+      </div></a>
+
+      <a href="SJ_product.html?id=5" class="card-link">
+      <div class="product" data-index="5">
+        <img src="Fabric_page/TYPES_OF_FABRIC/Single_Jersey/20250504_202859.jpg" alt="SJ 5">
+        <h3>Rs 1550/= per Kg</h3>
+        <p>100% Cotton Single Jersey</p>
+        <button class="card-button view-more">VIEW MORE</button>
+      </div></a>
+
+      <a href="SJ_product.html?id=6" class="card-link">
+      <div class="product" data-index="6">
+        <img src="Fabric_page/TYPES_OF_FABRIC/Single_Jersey/20250504_202836.jpg" alt="SJ 6">
+        <h3>Rs 1550/= per Kg</h3>
+        <p>100% Cotton Single Jersey</p>
+        <button class="card-button view-more">VIEW MORE</button>
+      </div></a>
+
+      <a href="SJ_product.html?id=7" class="card-link">
+      <div class="product" data-index="7">
+        <img src="Fabric_page/TYPES_OF_FABRIC/Single_Jersey/20250504_202808.jpg" alt="SJ 7">
+        <h3>Rs 1550/= per Kg</h3>
+        <p>100% Cotton Single Jersey</p>
+        <button class="card-button view-more">VIEW MORE</button>
+      </div></a>
+
+    </div>
+  </div>
+</div>
+
+<!-- Scroll to Top Button Script -->
+<script>
+  window.onscroll = function () {
+    const btn = document.getElementById("topBtn");
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
+    }
+  };
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+<!-- Back to Top Button -->
+<button onclick="scrollToTop()" id="topBtn" title="Go to top">
+  <img src="logo/uparrow.png" alt="Up Arrow">
+</button>
+
+</body>
+</html>

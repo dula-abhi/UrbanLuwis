@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us</title>
+  <link rel="stylesheet" href="styles_common.css" />
+  <link rel="stylesheet" href="CSS/commenUs.css" />
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div id="navbar"></div>
+<script>
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+    });
+</script>
+
+<br><br><br><br>
+
+<!-- Contact Form Section -->
+<section class="contact section" id="contact">
+  <div class="contact__container bd-grid">
+    <form action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="b60f9cbd-6543-49f5-a5ee-c3cd9a315a0d">
+
+      <input type="text" placeholder="Name" name="name" class="contact__input slide-in-left" required>
+      <input type="email" placeholder="Email" name="email" class="contact__input slide-in-left" required>
+      <textarea name="message" placeholder="Text" name="message" class="contact__input slide-in-left" cols="0" rows="10" required></textarea>
+
+      <div class="buttons-container">
+        <button type="reset" class="contact__button button clear">Clear Form</button>
+        <button type="submit" class="contact__button button">Submit Form</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<br><br><br><br>
+
+<!-- Footer -->
+<div id="footer"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
+
+</body>
+</html>
