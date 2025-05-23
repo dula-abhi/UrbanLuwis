@@ -1,0 +1,86 @@
+/* Reset & base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0;
+  padding: 50px 20px;
+  position: relative;
+}
+
+/* Back button styling */
+.back-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  background-color: transparent;
+  color: #999;
+  border: 1px solid #444;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.back-button:hover {
+  color: #fff;
+  border-color: #666;
+  box-shadow: 0 0 8px #888;
+}
+
+/* Container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #1f1f1f;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Headings */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.date {
+  text-align: center;
+  color: #aaa;
+  font-size: 0.9em;
+  margin-bottom: 40px;
+}
+
+h2 {
+  color: #006eff;
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+/* Paragraphs & Links */
+p {
+  line-height: 1.6;
+  color: #ddd;
+}
+
+a {
+  color: #80bfff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Section spacing */
+section {
+  margin-bottom: 30px;
+}

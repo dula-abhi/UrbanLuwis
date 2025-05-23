@@ -1,0 +1,139 @@
+/* Reset & basic setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative; /* Needed for absolute back button positioning */
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Back button styling */
+.back-button {
+    position: absolute;
+    top: 30px;      /* Down from the top */
+    left: 30px;     /* Right from the left */
+    background-color: transparent;
+    color: #999;
+    border: 1px solid #444;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.back-button:hover {
+    color: #fff;
+    border-color: #666;
+    box-shadow: 0 0 8px #888;
+}
+
+/* Form container */
+form {
+    background-color: #1f1f1f;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    width: 100%;
+    transition: transform 0.3s;
+}
+
+form:hover {
+    transform: scale(1.02);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+/* Input styling */
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 6px;
+    background-color: #2b2b2b;
+    color: #ffffff;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus {
+    background-color: #3a3a3a;
+    outline: none;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background-color: #444;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #666;
+    box-shadow: 0 0 10px #888;
+}
+
+.form-links {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.form-links a {
+    color: #999;
+    text-decoration: none;
+    font-size: 15px;
+    margin: 0 5px;
+    transition: color 0.3s;
+}
+
+.form-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+p {
+    color: #999;
+    font-size: 14px;
+}
