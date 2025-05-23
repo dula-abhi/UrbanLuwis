@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>URBAN LUWIS FABRIC</title>
+  <link rel="stylesheet" href="styles_common.css">
+  <link rel="stylesheet" href="CSS/styles_fabric.css">
+</head>
+
+<body background="Fabric_page/photo/main_2.jpeg">
+
+<!-- Navigation Bar -->
+<div id="navbar"></div>
+<script>
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+    });
+</script>
+
+<!-- Fabric Section -->
+<section class="contact section" id="contact">
+  <div class="contact__container bd-grid">
+    <br>
+    <div class="grid-container">
+      <a class="card from-left" href="SingleJersey.html"><span>Single Jersey</span></a>
+      <a class="card from-right" href="twill.html"><span>Twill</span></a>
+      <a class="card from-left" href="Fleece.html"><span>Fleece</span></a>
+      <a class="card from-right" href="cambric.html"><span>Cambric</span></a>
+      <a class="card from-left" href="Rib.html"><span>Rib</span></a>
+      <a class="card from-right" href="Crosol.html"><span>Crosol</span></a>
+      <a class="card from-left" href="WetLook.html"><span>Wet Look</span></a>
+      <a class="card from-right" href="4way.html"><span>4 Way</span></a>
+      <a class="card from-left" href="Spandex.html"><span>Spandex</span></a>
+      <a class="card from-right" href="popcorn.html"><span>Popcorn</span></a>
+      <a class="card from-left" href="Crocodile.html"><span>Crocodile</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<br><br><br>
+<div id="footer"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HOME</title>
+  <link rel="stylesheet" href="styles_common.css" />
+  <link rel="stylesheet" href="CSS/styles_home.css" />
+</head>
+<body>
+
+<!--navigation bar-->
+<div id="navbar"></div>
+
+<script>
+  fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('navbar').innerHTML = data;
+    });
+</script>
+<!--End navigation bar-->
+
+<!-- Home Image -->
+<div class="slider-container">
+  <div class="slider-track">
+    <img src="Home page/Main01.png" alt="Slide 1">
+    <img src="Home page/Main02.png" alt="Slide 2">
+    <img src="Home page/Main03.png" alt="Slide 3">
+    <img src="Home page/myPost1.png" alt="Slide 4">
+    <!-- Add more images here -->
+  </div>
+</div>
+
+
+
+<!-- Floating Chat with Us Button -->
+<div class="chat-float">
+  <img src="logo/CahtWithUs.svg" alt="Chat with Us" class="main-chat-icon" />
+  <div class="chat-options">
+    <a href="https://wa.me/94776703808" target="_blank">
+      <img src="logo/WhatsApp.png" alt="WhatsApp" />
+    </a>
+    <a href="https://www.instagram.com/_urban_luwis_clothing_" target="_blank">
+      <img src="logo/Instagram.png" alt="Instagram" />
+    </a>
+    <a href="https://t.me/yourusername" target="_blank">
+      <img src="logo/telegram.png" alt="Telegram" />
+    </a>
+    <a href="https://www.facebook.com/yourpage" target="_blank">
+      <img src="logo/facebook.png" alt="Facebook" />
+    </a>
+    <a href="mailto:yourmail@example.com">
+      <img src="logo/gmail.png" alt="Email" />
+    </a>
+  </div>
+</div>
+
+<!--footer-->
+<div id="footer"></div>
+<script>
+  fetch('footer.html')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer').innerHTML = data;
+    });
+</script>
+<!--End Footer-->
+
+
+<script>
+  const sliderTrack = document.querySelector('.slider-track');
+  const slides = document.querySelectorAll('.slider-track img');
+  const totalSlides = slides.length;
+  let index = 0;
+
+  function slide() {
+    index++;
+    if (index >= totalSlides) {
+      index = 0;
+    }
+    sliderTrack.style.transform = `translateX(-${index * 100}vw)`;
+  }
+
+  setInterval(slide, 5000); // Change slide every 5 seconds
+</script>
+</body>
+</html>
